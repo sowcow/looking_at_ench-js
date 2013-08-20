@@ -1,0 +1,35 @@
+<!DOCTYPE html><html><head><title>Game</title><style type="text/css">*{margin:0;padding:0}</style></head><body><script src="js/enchant.js"></script><script type="text/javascript">(function() {
+  enchant();
+
+  window.onload = function() {
+    var game;
+    game = new Core(160, 160);
+    game.preload('ass/map0.png');
+    game.preload('ass/space3.png');
+    game.add = function(obj) {
+      return this.rootScene.addChild(obj);
+    };
+    game.onload = function() {
+      var bear, bg, i, image, j, tiles, x, y, _i, _j;
+      tiles = game.assets['ass/map0.png'];
+      bg = new Sprite(160, 160);
+      image = new Surface(160, 160);
+      for (j = _i = 0; _i <= 9; j = ++_i) {
+        for (i = _j = 0; _j <= 9; i = ++_j) {
+          x = i * 16;
+          y = j * 16;
+          image.draw(tiles, 0, 0, 16, 16, x, y, 16, 16);
+        }
+      }
+      bg.image = image;
+      game.add(bg);
+      bear = new Sprite(32, 32);
+      bear.image = game.assets['ass/space3.png'];
+      bear.frame = [15, 15, 16, 16, 16, 16, 15, 15, 17, 17, 17, 17];
+      return game.add(bear);
+    };
+    return game.start();
+  };
+
+}).call(this);
+</script></body></html>
