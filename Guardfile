@@ -1,5 +1,5 @@
 guard 'livereload' do
-  watch 'page.html'
+  watch 'result.html'
 end
 
 guard 'shell' do
