@@ -3,5 +3,6 @@ guard 'livereload' do
 end
 
 guard 'shell' do
-  watch('Rakefile') { `rake` }
+  files = 'Rakefile', 'code.coffee'
+  watch(/(#{files * ?| })/) { `rake` }
 end
